@@ -1,5 +1,6 @@
 package aplicação;
 
+import java.awt.print.Printable;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -32,14 +33,20 @@ public class Programa {
 		System.out.print("Informe uma quantia para sacar: ");
 		double conta = sc.nextDouble(); // leitura da quantia do saque na conta
 
-		acc.quantiaSaque(conta); // chama a função da quantia de saque
-		System.out.printf("Novo saldo: %.2f%n", acc.getSaldo());
+		// colocando as exceções com if
+		if (conta > acc.getLimitSaque()) {
+			System.out.println("Erro de Saque: A quantia excede o Limite de saque");
+		} else if (conta > acc.getSaldo()) {
+			System.out.println("Erro de Saque: Saldo Insuficiente!");
+		}
+
+		else {
+
+			acc.quantiaSaque(conta); // chama a função da quantia de saque
+			System.out.printf("Novo saldo: %.2f%n", acc.getSaldo());
+		}
 
 		sc.close(); // fechando a instancia da variavel de leitura
 	}
 
 }
-
-/*
- * Mudando Banch master para main "GitHub" git branch -m master main
- */
