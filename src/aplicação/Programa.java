@@ -33,11 +33,12 @@ public class Programa {
 		System.out.print("Informe uma quantia para sacar: ");
 		double conta = sc.nextDouble(); // leitura da quantia do saque na conta
 
-		try {
-			acc.quantiaSaque(conta); // chama a função da quantia de saque
+		try { // tentar executar o bloco
+			acc.quantiaSaque(conta); // chama a função da quantia de saque, porem pode lançar uma exceção
 			System.out.printf("Novo saldo: %.2f%n", acc.getSaldo());
-		} catch (BusinessException e) {
-			System.out.println(e.getMessage());
+		} catch (BusinessException e) { // pode capturar uma exceção BusinessException e
+			System.out.println(e.getMessage()); // e.getMessage pega a mensagem armazenada na exceção e envia ao
+												// usuario.
 		}
 
 		sc.close(); // fechando a instancia da variavel de leitura

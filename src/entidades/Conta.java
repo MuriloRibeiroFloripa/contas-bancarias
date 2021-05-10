@@ -60,13 +60,14 @@ public class Conta {
 
 	// metodo Saque recebendo argumento quantiaSaque
 	public void quantiaSaque(double conta) {
-		validateQuantiaSaque(conta); // tratamento de exceção
+		validateQuantiaSaque(conta); // tratamento de exceção sendo chamada aqui
 		saldo -= conta;
 	}
 
-	// metodo Saque
-	private void validateQuantiaSaque(double conta) {
+	// metodo Saque como privado
+	private void validateQuantiaSaque(double conta) { // throw corta o metodo, finaliza.
 		if (conta > getLimitSaque()) {
+			// BusinessException da classe RuntimeException
 			throw new BusinessException("Erro de saque: A quantia excede o limite de saque");
 		}
 		if (conta > getSaldo()) {
