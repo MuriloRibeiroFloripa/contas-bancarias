@@ -7,11 +7,11 @@ public class Conta {
 	private Double saldo;
 	private Double limitSaque;
 
-	//para criar um contrutor sem nenhum argumento "construtor vazio"
+	// para criar um contrutor sem nenhum argumento "construtor vazio"
 	public Conta() {
 	}
-	
-	//Contrutor com os argumentos
+
+	// Contrutor com os argumentos
 	public Conta(Integer numero, String titularConta, Double saldo, Double limitSaque) {
 		this.numero = numero;
 		this.titularConta = titularConta;
@@ -58,6 +58,6 @@ public class Conta {
 
 	// metodo Saque recebendo argumento quantiaSaque
 	public void quantiaSaque(double conta) {
-			saldo -= conta;
+		saldo -= conta;
 	}
 }
