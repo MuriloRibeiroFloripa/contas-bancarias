@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entidades.Conta;
+import exceptions.BusinessException;
 
 public class Programa {
 
@@ -32,15 +33,18 @@ public class Programa {
 		System.out.print("Informe uma quantia para sacar: ");
 		double conta = sc.nextDouble(); // leitura da quantia do saque na conta
 
-		String error = acc.validarSaque(conta);
-		if (error != null) {// veio erro
-			System.out.println(error);
-		} else {
+		try {
 			acc.quantiaSaque(conta); // chama a função da quantia de saque
 			System.out.printf("Novo saldo: %.2f%n", acc.getSaldo());
+		} catch (BusinessException e) {
+			System.out.println(e.getMessage());
 		}
 
 		sc.close(); // fechando a instancia da variavel de leitura
 	}
 
 }
+
+/*
+ * Mudando Banch master para main "GitHub" git branch -m master main
+ */

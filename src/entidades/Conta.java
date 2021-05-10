@@ -1,5 +1,7 @@
 package entidades; //entidade do negocio.
 
+import exceptions.BusinessException;
+
 public class Conta {
 
 	private Integer numero;
@@ -58,18 +60,17 @@ public class Conta {
 
 	// metodo Saque recebendo argumento quantiaSaque
 	public void quantiaSaque(double conta) {
+		validateQuantiaSaque(conta); // tratamento de exceção
 		saldo -= conta;
 	}
 
-	public String validarSaque(double conta) {
-
+	// metodo Saque
+	private void validateQuantiaSaque(double conta) {
 		if (conta > getLimitSaque()) {
-			return "Erro de Saque: A quantia excede o Limite de saque";
-
+			throw new BusinessException("Erro de saque: A quantia excede o limite de saque");
 		}
 		if (conta > getSaldo()) {
-			return "Erro de Saque: Saldo Insuficiente!";
+			throw new BusinessException("Erro de saque: Saldo insuficiente!");
 		}
-		return null;
 	}
 }
