@@ -1,6 +1,5 @@
 package aplicação;
 
-import java.awt.print.Printable;
 import java.util.Locale;
 import java.util.Scanner;
 
